@@ -39,6 +39,7 @@ function CalcularEstadisticas(file){
                     if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
                 }catch(e){
                     window.alert(e.message);
+                }
                 window.alert(msg);
             }
             window.alert("Pre-Chat");
