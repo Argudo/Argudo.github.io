@@ -47,8 +47,17 @@
         border-radius: 10px;
       }
       #info-ch > div{
-        display: flex;
-        justify-content: space-between;
+        padding: 20px;
+      }
+      #output {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+      canvas{
+        margin: 30px 0;
       }
       .button {
         display: inline-block;
@@ -89,5 +98,6 @@
       <script src="mensaje.js"></script>
       <script src="chat.js"></script>
       <script type="text/javascript" src="grafico.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

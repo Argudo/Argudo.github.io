@@ -68,6 +68,7 @@ class Chat{
         return v;
     }
     DiaSemanaMasMensajes() { return Chat.ConvertirDiaString(Object.keys(this._iDiaSemanaFreq).reduce((a, b) => this._iDiaSemanaFreq[a] > this._iDiaSemanaFreq[b] ? a : b)); }
+    UsuarioFrecuencia() { return this._userMsgFreq; }
     UsuarioMasMensajes() { return Object.keys(this._userMsgFreq).reduce((a, b) => this._userMsgFreq[a] > this._userMsgFreq[b] ? a : b); }
     UsuarioMasPalabras() { return Object.keys(this._userPalabraFreq).reduce((a, b) => this._userPalabraFreq[a] > this._userPalabraFreq[b] ? a : b); }
 }

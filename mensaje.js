@@ -17,18 +17,19 @@ class Mensaje{
 
         
         var sUsuario = _msg.split(':')[0];
-        if(Usuario.aUsuarios.length < 2 && !Usuario.exiseUsuario(sUsuario)){
-            //TODO: Si es una conversación entre dos y existen ya dos usuarios preguntar a cual de los dos pertenece el mensaje
-            var usuario = new Usuario(sUsuario)
-            Usuario.aUsuarios.push(usuario);
-            this._sUsuario = usuario;
-            Mensaje._userUltMsg = usuario;
-        }
-        else if(Usuario.aUsuarios.length >= 2){
-            this._sUsuario = Mensaje._userUltMsg;
+        if(!Usuario.exiseUsuario(sUsuario)){
+            if(Usuario.aUsuarios.length < 2){
+                //TODO: Si es una conversación entre dos y existen ya dos usuarios preguntar a cual de los dos pertenece el mensaje
+                var usuario = new Usuario(sUsuario)
+                Usuario.aUsuarios.push(usuario);
+                this._sUsuario = usuario;
+                Mensaje._userUltMsg = usuario;
+            }
+            else this._sUsuario = Mensaje._userUltMsg;
         }
         else{
             this._sUsuario = Usuario.buscarUsuario(sUsuario);
+            Mensaje._userUltMsg = Usuario.buscarUsuario(sUsuario);
         }
         
         this._sMensaje = _msg.split(':')[1];

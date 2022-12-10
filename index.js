@@ -82,25 +82,46 @@ function CalcularEstadisticas(file){
                 <p>Usuario que más habla: ${chat.UsuarioMasMensajes()}</p>
                 <p>Usuario con más palabras: ${chat.UsuarioMasPalabras()}</p>
             </div>
-            <canvas id="myCanvas" style="background: white; width: 40%"></canvas>
-            <legend for="myCanvas"></legend>
+            <canvas id="msgxdia" style="background: white; width: 40%"></canvas>
+            <canvas id="msgxuser" style="background: white; width: 40%"></canvas>
         </div>`;
-        console.log(aMensajes);
-
-        var myBarchart = new Barchart(
-            {
-                id:"myCanvas",
-                canvas:myCanvas,
-                seriesName:"Mensajes por día de la semana",
-                padding:20,
-                gridScale:5,
-                gridColor:"#eeeeee",
-                data:chat.sDiaSemanaFrecuencia(),
-                colors:["#a55ca5","#67b6c7", "#bccd7a","#eb9743"]
+        new Chart(document.getElementById("msgxdia"), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(chat.sDiaSemanaFrecuencia()),
+              datasets: [{
+                label: 'Mensajes por día de la semana',
+                data: Object.values(chat.sDiaSemanaFrecuencia()),
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
             }
-        );
+        });
+        new Chart(document.getElementById("msgxuser"), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(chat.UsuarioFrecuencia()),
+              datasets: [{
+                label: 'Mensajes por día de la semana',
+                data: Object.values(chat.UsuarioFrecuencia()),
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+        });
 
-        myBarchart.draw();
         document.getElementById('info').style.visibility = 'visible';
     });
 }
