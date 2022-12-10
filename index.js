@@ -279,7 +279,6 @@ class Mensaje{
     static _userUltMsg;
 
     constructor(msg){
-        window.alert("Nuevo mensaje")
         this._sMensajeOriginal = msg;
         var [info, ..._msg] = msg.split(']');
         _msg = _msg.join(']');
