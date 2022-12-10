@@ -225,6 +225,7 @@ function CalcularEstadisticas(file){
             for(msg of aMsg){
                 try{
                     if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
+                    window.alert(new Mensaje(msg).toString());
                 }
                 catch(e){
                     console.log(e);
