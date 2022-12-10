@@ -32,6 +32,7 @@ function CalcularEstadisticas(file){
         reader.addEventListener('load', () => {
             window.alert(reader.result);
             aMsg = reader.result.split('\n');
+            window.alert("Spliteado");
             for(msg of aMsg){
                if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
             }
