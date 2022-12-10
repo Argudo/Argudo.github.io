@@ -55,10 +55,34 @@ class Chat{
         }
     }
 
+    static ConvertirMesString(sMes){
+        var iMes = parseInt(sMes);
+        switch(iMes){
+            case 0: return "Enero";
+            case 1 : return "Febrero";
+            case 2 : return "Marzo";
+            case 3 : return "Abril";
+            case 4 : return "Mayo";
+            case 5 : return "Junio";
+            case 6 : return "Julio";
+            case 7 : return "Agosto";
+            case 8 : return "Septiembre";
+            case 9 : return "Octubre";
+            case 10 : return "Noviembre";
+            case 11 : return "Diciembre";
+        }
+    }
+
     getMensajes(){ return this._aMensajes; }
     NumMensajes(){ return this._aMensajes.length; }
     DiaMasMensajes(){ return  this._iDiaFreq.indexOf(Math.max.apply(0, this._iDiaFreq.slice(1, 32))); }
     MesMasMensajes(){ return  this._iMesFreq.indexOf(Math.max.apply(0,this._iMesFreq.slice(1, 13))); }
+    MesFrecuencia() { return this._iMesFreq.slice(1,13)}
+    sMesFrecuencia() {
+        var v = {}; self = this;
+        Object.keys(this._iMesFreq.slice(1,13)).forEach(d => v[Chat.ConvertirMesString(d)] = self._iMesFreq[d]);
+        return v;
+    }
     AñoMasMensajes(){ return  this._iAñoFreq.indexOf(Math.max.apply(0,this._iAñoFreq.slice(1, 101))); }
     FechaMasMensajes() { return Object.keys(this._daFechaFreq).reduce((a, b) => this._daFechaFreq[a] > this._daFechaFreq[b] ? a : b); }
     DiaSemanaFrecuencia() { return this._iDiaSemanaFreq.slice(0,8)}

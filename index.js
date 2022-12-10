@@ -79,10 +79,11 @@ function CalcularEstadisticas(file){
                 <p>Mes del año que mas habláis: ${toMonthName(chat.MesMasMensajes())}</p>
                 <p>Año con más mensajes: ${chat.AñoMasMensajes()}</p>
                 <p>Día de la semana que mas habláis: ${(chat.DiaSemanaMasMensajes())}</p>
-                <p>Usuario que más habla: ${chat.UsuarioMasMensajes()}</p>
+                <p>Usuario con más mensajes: ${chat.UsuarioMasMensajes()}</p>
                 <p>Usuario con más palabras: ${chat.UsuarioMasPalabras()}</p>
             </div>
             <canvas id="msgxdia" style="background: white; width: 40%"></canvas>
+            <canvas id="msgxmes" style="background: white; width: 40%"></canvas>
             <canvas id="msgxuser" style="background: white; width: 40%"></canvas>
         </div>`;
         new Chart(document.getElementById("msgxdia"), {
@@ -108,8 +109,26 @@ function CalcularEstadisticas(file){
             data: {
               labels: Object.keys(chat.UsuarioFrecuencia()),
               datasets: [{
-                label: 'Mensajes por día de la semana',
+                label: 'Mensajes por usuario',
                 data: Object.values(chat.UsuarioFrecuencia()),
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+        });
+        new Chart(document.getElementById("msgxmes"), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(chat.sMesFrecuencia()),
+              datasets: [{
+                label: 'Mensajes por mes',
+                data: Object.values(chat.MesFrecuencia()),
                 borderWidth: 1
               }]
             },
