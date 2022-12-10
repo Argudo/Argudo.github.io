@@ -22,7 +22,7 @@ function handleFiles(files) {
 function CalcularEstadisticas(file){
     try{    
         var aMensajes = [];
-        Usuario.aUsuarios = [];
+        Usuario.setUsuarios([]);
         var ul = document.getElementsByTagName('ul')[0];
         if(ul != null) ul.remove();
         window.alert("Prelectura");

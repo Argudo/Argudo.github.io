@@ -7,6 +7,8 @@ class Usuario{
     }
     
     getNombre(){ return this._sNombre; }
+    static getUsuarios(){ return Usuario.aUsuarios; }
+    static setUsuarios(usuarios){ Usuario.aUsuarios = usuarios; }
 
     static exiseUsuario(nombre){
         for(var _usuario of Usuario.aUsuarios){
