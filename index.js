@@ -34,7 +34,11 @@ function CalcularEstadisticas(file){
             aMsg = reader.result.split('\n');
             window.alert("Spliteado");
             for(msg of aMsg){
-                if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
+                window.alert("Hola")
+                try{
+                    if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
+                }catch(e){
+                    window.alert(e.message);
                 window.alert(msg);
             }
             window.alert("Pre-Chat");
