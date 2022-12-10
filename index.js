@@ -224,8 +224,9 @@ function CalcularEstadisticas(file){
             window.alert("Spliteado");
             for(msg of aMsg){
                 try{
-                    if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
+                    window.alert("Mensaje: " + msg);
                     window.alert(new Mensaje(msg).toString());
+                    if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
                 }
                 catch(e){
                     console.log(e);
