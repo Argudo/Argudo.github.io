@@ -1,5 +1,6 @@
 class Chat{
     _aMensajes;
+    _aUsuarios;
     _iDiaFreq = [0];
     _iMesFreq = [0];
     _iAñoFreq = [0];
@@ -22,6 +23,7 @@ class Chat{
             this._iDiaSemanaFreq[`${msg.getDiaSemana()}`] = this._iDiaSemanaFreq[`${msg.getDiaSemana()}`] == null ? 1 : this._iDiaSemanaFreq[`${msg.getDiaSemana()}`] + 1;
             this._userMsgFreq[`${msg.getUsuario().getNombre()}`] = this._userMsgFreq[`${msg.getUsuario().getNombre()}`] == null ? 1 : this._userMsgFreq[`${msg.getUsuario().getNombre()}`] + 1;
             this._userPalabraFreq[`${msg.getUsuario().getNombre()}`] = this._userPalabraFreq[`${msg.getUsuario().getNombre()}`] == null ? msg.getNumPalabras() : this._userPalabraFreq[`${msg.getUsuario().getNombre()}`] + msg.getNumPalabras();
+            this._aUsuarios = Usuario.getUsuarios();
         }
     }
 
@@ -73,6 +75,7 @@ class Chat{
         }
     }
 
+    getUsuarios(){ return this._aUsuarios; }
     getMensajes(){ return this._aMensajes; }
     NumMensajes(){ return this._aMensajes.length; }
     DiaMasMensajes(){ return  this._iDiaFreq.indexOf(Math.max.apply(0, this._iDiaFreq.slice(1, 32))); }

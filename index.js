@@ -16,28 +16,13 @@ let dropArea = document.getElementById('drop_zone')
 function handleFiles(files) {
     ([...files]).forEach(f => CalcularEstadisticas(f))
 }
-
-const Usuarios = (function () {
-    return {
-      save: function (entry) {
-        return Usuario.push(entry);
-      },
-      all: function () {
-        return Usuario.aUsuarios;
-      },
-      set: function (entries) {
-        Usuario.setUsuarios(entries);
-      }
-    };
-  })();
   
 
 
 function CalcularEstadisticas(file){
     try{    
         var aMensajes = [];
-        "use strict";
-        Usuarios.set([]);
+        var aUsuarios = [];
         var ul = document.getElementsByTagName('ul')[0];
         if(ul != null) ul.remove();
         window.alert("Prelectura");
@@ -52,7 +37,8 @@ function CalcularEstadisticas(file){
             var chat = new Chat(aMensajes);
             console.log(chat);
             window.alert(chat.NumMensajes());
-            infoch.innerHTML = `<h3 id="Usuarios"><b>Conversación entre ${Usuarios.all()[0].getNombre()} y ${Usuarios.all()[1].getNombre()} </b></h3>
+            aUsuarios = chat.Usuarios();
+            infoch.innerHTML = `<h3 id="Usuarios"><b>Conversación entre ${aUsuarios[0].getNombre()} y ${aUsuarios[1].getNombre()} </b></h3>
             <div>
                 <div id="output">
                     <p>Mensajes totales: ${aMensajes.length}</p>
