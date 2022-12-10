@@ -28,8 +28,9 @@ function CalcularEstadisticas(file){
         window.alert("Prelectura");
         var reader = new FileReader();
         reader.readAsText(file);
+        window.alert("Lectura");
         reader.addEventListener('load', () => {
-            console.log(reader.result);
+            window.alert(reader.result);
             aMsg = reader.result.split('\n');;
             for(msg of aMsg){
                if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
