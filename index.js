@@ -85,6 +85,7 @@ function CalcularEstadisticas(file){
             <canvas id="msgxdia" style="background: white; width: 40%"></canvas>
             <canvas id="msgxmes" style="background: white; width: 40%"></canvas>
             <canvas id="msgxuser" style="background: white; width: 40%"></canvas>
+            <button class="button" id="btnConvert" onclick="GenerarImagen()">Exportar a PNG</button>
         </div>`;
         new Chart(document.getElementById("msgxdia"), {
             type: 'bar',
@@ -145,48 +146,22 @@ function CalcularEstadisticas(file){
     });
 }
 
-
-btnConvert.addEventListener('click', () => {
-    var aMensajes = [];
-    Usuario.aUsuarios = [];
-    var ul = document.getElementsByTagName('ul')[0];
-    if(ul != null) ul.remove();
-    var reader = new FileReader();
-    reader.readAsText(document.getElementById('file').files[0]);
-    reader.addEventListener('load', () => {
-        console.log(reader.result);
-        aMsg = reader.result.split('\n');;
-        for(msg of aMsg){
-           if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
-        }
-        var chat = new Chat(aMensajes);
-        console.log(chat);
-        pOutput.innerHTML = `<p>Usuario: ${Usuario.aUsuarios[0].getNombre()}</p>`;
-        pOutput.innerHTML += `<p>Usuario: ${Usuario.aUsuarios[1].getNombre()}</p>`;
-        pOutput.innerHTML += `<p>Mensajes totales: ${aMensajes.length}</p>`;
-        pOutput.innerHTML += `<p>Fecha con más mensajes: ${chat.FechaMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Día del mes que mas habláis: ${chat.DiaMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Mes del año que mas habláis: ${toMonthName(chat.MesMasMensajes())}</p>`;
-        pOutput.innerHTML += `<p>Año con más mensajes: ${chat.AñoMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Día de la semana que mas habláis: ${(chat.DiaSemanaMasMensajes())}</p>`;
-        pOutput.innerHTML += `<p>Usuario que más habla: ${chat.UsuarioMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Usuario con más palabras: ${chat.UsuarioMasPalabras()}</p>`;
-        console.log(aMensajes);
-
-        var myBarchart = new Barchart(
-            {
-                canvas:myCanvas,
-                seriesName:"Mensajes por día de la semana",
-                padding:20,
-                gridScale:5,
-                gridColor:"#eeeeee",
-                data:chat.sDiaSemanaFrecuencia(),
-                colors:["#a55ca5","#67b6c7", "#bccd7a","#eb9743"]
-            }
-        );
-
-        myBarchart.draw();
+function GenerarImagen(){
+    const btn = document.getElementById("btnConvert");
+    btn.style.visibility = 'hidden';
+    console.log("Generando imagen");
+    $objetivo = document.querySelector("#info-ch")
+    html2canvas($objetivo).then(canvas => {
+        //document.body.appendChild(canvas)
+        var img = canvas.toDataURL("image/png");
+        var link = document.createElement('a');
+        link.download = 'my-image-name.png';
+        link.href = img;
+        link.click();
     });
-});
+    btn.style.visibility = 'visible';
+}
+
+
 
 
