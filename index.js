@@ -52,7 +52,7 @@ function CalcularEstadisticas(file){
             var chat = new Chat(aMensajes);
             console.log(chat);
             window.alert(chat.NumMensajes());
-            infoch.innerHTML = `<h3 id="Usuarios"><b>Conversación entre ${Usuarios.all()[0].getNombre()} y ${Usuario.all()[1].getNombre()} </b></h3>
+            infoch.innerHTML = `<h3 id="Usuarios"><b>Conversación entre ${Usuarios.all()[0].getNombre()} y ${Usuarios.all()[1].getNombre()} </b></h3>
             <div>
                 <div id="output">
                     <p>Mensajes totales: ${aMensajes.length}</p>
