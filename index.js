@@ -14,8 +14,6 @@ function toMonthName(monthNumber) {
 let dropArea = document.getElementById('drop_zone')
 
 function handleFiles(files) {
-    window.alert("Ejecución");
-    console.log("Ejecución");
     ([...files]).forEach(f => CalcularEstadisticas(f))
 }
   
