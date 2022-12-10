@@ -1,3 +1,4 @@
+"use strict"
 class Chat{
     _aMensajes;
     _aUsuarios;
@@ -100,6 +101,7 @@ class Chat{
     UsuarioMasPalabras() { return Object.keys(this._userPalabraFreq).reduce((a, b) => this._userPalabraFreq[a] > this._userPalabraFreq[b] ? a : b); }
 }
 
+"use strict"
 class Mensaje{
     _dFecha;
     _iAño;
@@ -158,6 +160,7 @@ class Mensaje{
     toString(){ return `Fecha: ${this._iDia}/${this._iMes}/${this._iAño}, Hora: ${this._dHora} - ${this._sUsuario.getNombre()}: ${this._sMensaje}`; }
 }
 
+"use strict"
 class Usuario{
     static aUsuarios = [];
     _sNombre;
