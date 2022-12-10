@@ -35,6 +35,7 @@ function CalcularEstadisticas(file){
             for(msg of aMsg){
                if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
             }
+            window.alert("Pre-Chat");
             var chat = new Chat(aMensajes);
             console.log(chat);
             window.alert(chat.NumMensajes());
