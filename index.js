@@ -1,5 +1,5 @@
 const btnConvert = document.getElementById('convert');
-const pOutput = document.getElementById('output');
+const infoch = document.getElementById('info-ch')
 var aMensajes = [];
 
 function toMonthName(monthNumber) {
@@ -12,7 +12,6 @@ function toMonthName(monthNumber) {
 }
 
 let dropArea = document.getElementById('drop_zone')
-dropArea.addEventListener('dragenter', handlerFunction, false)
 dropArea.addEventListener('dragleave', handlerFunction, false)
 dropArea.addEventListener('dragover', handlerFunction, false)
 dropArea.addEventListener('drop', handlerFunction, false)
@@ -71,19 +70,26 @@ function CalcularEstadisticas(file){
         }
         var chat = new Chat(aMensajes);
         console.log(chat);
-        pOutput.innerHTML = `<p id="Usuarios"><b>Conversación entre ${Usuario.aUsuarios[0].getNombre()} y ${Usuario.aUsuarios[1].getNombre()} </b></p>`;
-        pOutput.innerHTML += `<p>Mensajes totales: ${aMensajes.length}</p>`;
-        pOutput.innerHTML += `<p>Fecha con más mensajes: ${chat.FechaMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Día del mes que mas habláis: ${chat.DiaMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Mes del año que mas habláis: ${toMonthName(chat.MesMasMensajes())}</p>`;
-        pOutput.innerHTML += `<p>Año con más mensajes: ${chat.AñoMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Día de la semana que mas habláis: ${(chat.DiaSemanaMasMensajes())}</p>`;
-        pOutput.innerHTML += `<p>Usuario que más habla: ${chat.UsuarioMasMensajes()}</p>`;
-        pOutput.innerHTML += `<p>Usuario con más palabras: ${chat.UsuarioMasPalabras()}</p>`;
+        infoch.innerHTML = `<h3 id="Usuarios"><b>Conversación entre ${Usuario.aUsuarios[0].getNombre()} y ${Usuario.aUsuarios[1].getNombre()} </b></h3>
+        <div>
+            <div id="output">
+                <p>Mensajes totales: ${aMensajes.length}</p>
+                <p>Fecha con más mensajes: ${chat.FechaMasMensajes()}</p>
+                <p>Día del mes que mas habláis: ${chat.DiaMasMensajes()}</p>
+                <p>Mes del año que mas habláis: ${toMonthName(chat.MesMasMensajes())}</p>
+                <p>Año con más mensajes: ${chat.AñoMasMensajes()}</p>
+                <p>Día de la semana que mas habláis: ${(chat.DiaSemanaMasMensajes())}</p>
+                <p>Usuario que más habla: ${chat.UsuarioMasMensajes()}</p>
+                <p>Usuario con más palabras: ${chat.UsuarioMasPalabras()}</p>
+            </div>
+            <canvas id="myCanvas" style="background: white; width: 40%"></canvas>
+            <legend for="myCanvas"></legend>
+        </div>`;
         console.log(aMensajes);
 
         var myBarchart = new Barchart(
             {
+                id:"myCanvas",
                 canvas:myCanvas,
                 seriesName:"Mensajes por día de la semana",
                 padding:20,

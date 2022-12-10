@@ -1,8 +1,4 @@
-var myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
-   
-var ctx = myCanvas.getContext("2d");
+ var ctx = myCanvas.getContext("2d");
  
 function drawLine(ctx, startX, startY, endX, endY,color){
     ctx.save();
@@ -22,10 +18,13 @@ function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height,color){
 }
  
 var Barchart = function(options){
+    myCanvas = document.getElementById(options.id);
     this.options = options;
     this.canvas = options.canvas;
     this.ctx = this.canvas.getContext("2d");
     this.colors = options.colors;
+    myCanvas.width = 400;
+    myCanvas.height = 400;
   
     this.draw = function(){
         var maxValue = 0;
