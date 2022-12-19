@@ -1,3 +1,7 @@
+import { Mensaje } from './Mensaje.js';
+import { Usuario } from './Usuario.js';
+import { Chat } from './chat.js';
+
 const btnConvert = document.getElementById('convert');
 const infoch = document.getElementById('info-ch')
 var aMensajes = [];

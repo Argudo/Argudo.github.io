@@ -1,4 +1,4 @@
-class Usuario{
+export class Usuario{
     static aUsuarios = [];
     _sNombre;
 

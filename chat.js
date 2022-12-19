@@ -1,4 +1,4 @@
-class Chat{
+export class Chat{
     _aMensajes;
     _aUsuarios;
     _iDiaFreq = [0];

@@ -1,4 +1,4 @@
-class Mensaje{
+export class Mensaje{
     _dFecha;
     _iAño;
     _iMes;
