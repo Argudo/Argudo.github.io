@@ -1,3 +1,5 @@
+import {Usuario} from './usuario.js';
+
 export class Mensaje{
     _dFecha;
     _iAño;

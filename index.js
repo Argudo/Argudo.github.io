@@ -1,10 +1,14 @@
-import { Mensaje } from './Mensaje.js';
-import { Usuario } from './Usuario.js';
-import { Chat } from './chat.js';
+import { Mensaje } from "./mensaje.js";
+import { Usuario } from "./usuario.js";
+import { Chat } from "./chat.js";
 
 const btnConvert = document.getElementById('convert');
 const infoch = document.getElementById('info-ch')
 var aMensajes = [];
+
+document.getElementsByClassName('fileUpload')[0].addEventListener('change', function(){
+  handleFiles(this.files);
+});
 
 function toMonthName(monthNumber) {
     const date = new Date();
@@ -17,7 +21,7 @@ function toMonthName(monthNumber) {
 
 let dropArea = document.getElementById('drop_zone')
 
-function handleFiles(files) {
+export function handleFiles(files) {
     ([...files]).forEach(f => CalcularEstadisticas(f))
 }
   
@@ -32,8 +36,8 @@ function CalcularEstadisticas(file){
     reader.readAsText(file);
     reader.addEventListener('load', () => {
         console.log(reader.result);
-        aMsg = reader.result.split('\n');;
-        for(msg of aMsg){
+        var aMsg = reader.result.split('\n');
+        for(var msg of aMsg){
            if(msg != null && msg.length > 20) aMensajes.push(new Mensaje(msg));
         }
         var chat = new Chat(aMensajes);

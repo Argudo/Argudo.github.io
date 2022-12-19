@@ -1,3 +1,6 @@
+import { Mensaje } from './mensaje.js';
+import { Usuario } from './usuario.js';
+
 export class Chat{
     _aMensajes;
     _aUsuarios;
