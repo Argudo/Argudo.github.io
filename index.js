@@ -23,6 +23,7 @@ let dropArea = document.getElementById('drop_zone')
 
 export function handleFiles(files) {
   try{
+    console.log(files);
     ([...files]).forEach(f => CalcularEstadisticas(f))
   }
   catch(e){
@@ -33,10 +34,12 @@ export function handleFiles(files) {
 
 
 function CalcularEstadisticas(file){
+    console.log("Archivo seleccionado: " + file.name);
     var aMensajes = [];
     Usuario.aUsuarios = [];
     var ul = document.getElementsByTagName('ul')[0];
     if(ul != null) ul.remove();
+    console.log("preparando archivo");
     var reader = new FileReader();
     reader.readAsText(file);
     reader.addEventListener('load', () => {
