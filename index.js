@@ -1,6 +1,7 @@
 import { Mensaje } from "./mensaje.js";
 import { Usuario } from "./usuario.js";
 import { Chat } from "./chat.js";
+import './node_modules/core.js';
 
 const btnConvert = document.getElementById('convert');
 const infoch = document.getElementById('info-ch')

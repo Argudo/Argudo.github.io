@@ -1,0 +1,18 @@
+/*
+* Underscore.string
+* (c) 2010 Esa-Matti Suuronen <esa-matti aet suuronen dot org>
+* Underscore.string is freely distributable under the terms of the MIT license.
+* Documentation: https://github.com/epeli/underscore.string
+* Some code is borrowed from MooTools and Alexandru Marasteanu.
+* Version '3.3.6'
+* @preserve
+*/
+
+/*!
+ * Copyright (c) 2010 Caolan McMahon 
+ * Copyright (c) 2012 Andrew Volkov <hello@vol4ok.net>
+ */
+
+/*!
+ * Copyright (c) 2012 Andrew Volkov <hello@vol4ok.net>
+ */
