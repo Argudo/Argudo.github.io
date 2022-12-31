@@ -22,7 +22,12 @@ function toMonthName(monthNumber) {
 let dropArea = document.getElementById('drop_zone')
 
 export function handleFiles(files) {
+  try{
     ([...files]).forEach(f => CalcularEstadisticas(f))
+  }
+  catch(e){
+    console.log(e);
+  }
 }
   
 
